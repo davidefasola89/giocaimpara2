@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gioc@Impar@ — Nido e Scuola dell'Infanzia bilingue a Carimate (CO). Aperto lunedì–venerdì 7:30–18:00.">
+<title>Gioc@Impar@ — Nido e Scuola dell'Infanzia Carimate (CO)</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sage:#3B6D11;--sage-mid:#639922;--sage-light:#EAF3DE;--sage-pale:#F4F9EE;
+  --coral:#D85A30;--coral-light:#FAECE7;
+  --cream:#FAFAF8;--dark:#2C2C2A;--text:#444441;--muted:#5F5E5A;
+  --radius:14px;--radius-lg:22px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(250,250,248,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #e2e8d8}
+.nav-inner{max-width:1100px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;gap:1rem}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
+.logo-mark{width:34px;height:34px;background:var(--sage-light);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.logo-text{font-size:16px;font-weight:800;color:var(--sage)}
+.logo-text em{color:var(--coral);font-style:normal}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--sage)}
+.nav-cta{background:var(--sage);color:#fff;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:var(--sage-mid)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid #e2e8d8;z-index:199;padding:1rem 1.25rem 1.5rem;flex-direction:column;gap:.25rem;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:15px;font-weight:600;color:var(--dark);text-decoration:none;padding:.65rem .5rem;border-bottom:1px solid #f0ede6}
+.mobile-menu a:last-child{border-bottom:none;margin-top:.5rem;background:var(--sage);color:#fff;text-align:center;border-radius:50px;padding:.75rem}
+
+/* UTILS */
+.divider{border:none;border-top:1px solid #e2e8d8}
+.section-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage);background:var(--sage-light);padding:4px 14px;border-radius:50px;margin-bottom:.875rem}
+.section-title{font-family:'Lora',Georgia,serif;font-size:clamp(20px,3vw,32px);font-weight:700;color:var(--dark);margin-bottom:.5rem;line-height:1.25}
+.section-sub{font-size:15px;color:var(--muted);max-width:580px;margin-bottom:2rem;line-height:1.7}
+section{padding:3.5rem 1.25rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.btn-primary{background:var(--sage);color:#fff;padding:12px 26px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;display:inline-block;transition:background .2s}
+.btn-primary:hover{background:var(--sage-mid)}
+.btn-secondary{background:#fff;color:var(--sage);padding:12px 26px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;display:inline-block;border:2px solid var(--sage);transition:all .2s}
+.btn-secondary:hover{background:var(--sage-pale)}
+
+/* HERO */
+.hero{background:var(--sage-pale);padding:3.5rem 1.25rem 3rem}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage);margin-bottom:.875rem}
+.hero-title{font-family:'Lora',Georgia,serif;font-size:clamp(24px,3.5vw,44px);font-weight:700;line-height:1.2;color:var(--dark);margin-bottom:1.25rem}
+.hero-title em{color:var(--sage);font-style:italic}
+.hero-quote{font-family:'Lora',Georgia,serif;font-style:italic;font-size:14px;color:var(--muted);border-left:3px solid var(--sage-mid);padding-left:1rem;margin-bottom:1.75rem;line-height:1.7}
+.hero-quote cite{display:block;margin-top:.4rem;font-style:normal;font-size:11px;font-weight:700;color:var(--sage)}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hcard{background:#fff;border-radius:var(--radius);padding:1rem;border:1px solid #dde8cc;display:flex;flex-direction:column;gap:.35rem}
+.hcard-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.hc-s{background:var(--sage-light)}
+.hc-c{background:var(--coral-light)}
+.hcard p{font-size:13px;font-weight:700;color:var(--dark)}
+.hcard span{font-size:11px;color:var(--muted)}
+.hcard.full{grid-column:span 2;flex-direction:row;align-items:center;gap:.875rem}
+
+/* BADGES */
+.badges-wrap{max-width:1100px;margin:0 auto;padding:1.75rem 1.25rem 0;display:flex;gap:.625rem;flex-wrap:wrap}
+.badge{background:#fff;border:1px solid #dde8cc;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;color:var(--sage);display:flex;align-items:center;gap:5px}
+.bdot{width:7px;height:7px;background:var(--sage-mid);border-radius:50%;flex-shrink:0}
+
+/* PROGETTO */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.edu-text h3{font-size:17px;font-weight:800;color:var(--dark);margin-bottom:.625rem}
+.edu-text p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.edu-list{list-style:none;display:flex;flex-direction:column;gap:.625rem;margin-bottom:1.5rem}
+.edu-list li{display:flex;align-items:flex-start;gap:.625rem;font-size:14px;color:var(--text)}
+.li-icon{width:22px;height:22px;background:var(--sage-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:1px}
+.phase-card{background:#fff;border:1px solid #e2e8d8;border-radius:var(--radius);padding:1.125rem;border-left:4px solid var(--sage);margin-bottom:.875rem}
+.phase-card.coral{border-left-color:var(--coral)}
+.phase-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sage);margin-bottom:.3rem}
+.phase-card.coral .phase-label{color:var(--coral)}
+.phase-card h4{font-size:14px;font-weight:800;color:var(--dark);margin-bottom:.3rem}
+.phase-card p{font-size:13px;color:var(--muted);line-height:1.5}
+.btn-sage{display:inline-block;background:var(--sage);color:#fff;padding:12px 26px;border-radius:50px;font-weight:700;font-size:14px;text-decoration:none;transition:background .2s}
+.btn-sage:hover{background:var(--sage-mid)}
+
+/* SPAZI */
+.spazi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.spazio-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid #e2e8d8;background:#fff}
+.spazio-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:44px}
+.sp-v{background:var(--sage-pale)}
+.sp-b{background:#E6F1FB}
+.sp-c{background:var(--coral-light)}
+.sp-a{background:#FAEEDA}
+.spazio-body{padding:1.125rem}
+.spazio-body h3{font-size:14px;font-weight:800;color:var(--dark);margin-bottom:.35rem}
+.spazio-body p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* SERVIZI */
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.svc{border-radius:var(--radius);padding:1.375rem;display:flex;gap:.875rem;align-items:flex-start;border:1px solid transparent}
+.svc-g{background:var(--sage-pale);border-color:#dde8cc}
+.svc-c{background:var(--coral-light);border-color:#f5c4b3}
+.svc-icon{width:42px;height:42px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:20px}
+.si-g{background:var(--sage-light)}
+.si-c{background:#f5c4b3}
+.svc h3{font-size:14px;font-weight:800;color:var(--dark);margin-bottom:.3rem}
+.svc p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* QUOTE BANNER */
+.quote-banner{background:var(--sage);padding:2.75rem 1.25rem;text-align:center}
+.quote-banner blockquote{font-family:'Lora',Georgia,serif;font-style:italic;font-size:clamp(15px,2vw,22px);color:#fff;max-width:680px;margin:0 auto;line-height:1.65}
+.quote-banner cite{display:block;margin-top:.875rem;font-style:normal;font-size:11px;font-weight:700;color:#c0dc8a;letter-spacing:1px;text-transform:uppercase}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.team-card{background:#fff;border:1px solid #e2e8d8;border-radius:var(--radius-lg);padding:1.375rem;text-align:center}
+.avatar{width:66px;height:66px;border-radius:50%;margin:0 auto .875rem;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.av-s{background:var(--sage-light);color:var(--sage)}
+.av-c{background:var(--coral-light);color:var(--coral)}
+.av-b{background:#E6F1FB;color:#185FA5}
+.team-card h3{font-size:14px;font-weight:800;color:var(--dark);margin-bottom:.2rem}
+.team-card .role{font-size:10px;font-weight:700;color:var(--sage);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
+.team-card p{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.blog-card{background:#fff;border:1px solid #e2e8d8;border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column}
+.blog-thumb{height:110px;display:flex;align-items:center;justify-content:center;font-size:38px}
+.bt-y{background:#FEF3C7}
+.bt-g{background:#DCFCE7}
+.bt-b{background:#DBEAFE}
+.blog-body{padding:1.125rem;flex:1;display:flex;flex-direction:column;gap:.4rem}
+.blog-date{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.blog-card h3{font-size:13px;font-weight:800;color:var(--dark);line-height:1.4}
+.blog-card p{font-size:12px;color:var(--muted);line-height:1.5;flex:1}
+.blog-card a{font-size:12px;font-weight:700;color:var(--sage);text-decoration:none}
+.blog-card a:hover{text-decoration:underline}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.contact-detail{display:flex;align-items:flex-start;gap:10px;margin-bottom:1.125rem}
+.cdet-icon{width:36px;height:36px;background:var(--sage-light);border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.cdet-label{font-size:10px;font-weight:700;color:var(--sage);text-transform:uppercase;letter-spacing:.8px}
+.cdet-val{font-size:14px;color:var(--dark);font-weight:600}
+.contact-info h3{font-family:'Lora',Georgia,serif;font-size:20px;font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.contact-info > p{color:var(--muted);font-size:14px;margin-bottom:1.5rem;line-height:1.6}
+.social-row{display:flex;gap:.625rem;margin-top:1.375rem;flex-wrap:wrap}
+.social-btn{display:flex;align-items:center;gap:6px;padding:9px 16px;border-radius:50px;border:1px solid #dde8cc;background:#fff;font-size:12px;font-weight:700;color:var(--dark);text-decoration:none;transition:all .2s}
+.social-btn:hover{border-color:var(--sage);color:var(--sage)}
+.contact-panel{background:var(--sage-pale);border-radius:var(--radius-lg);padding:1.75rem;border:1px solid #dde8cc}
+.contact-panel h4{font-size:15px;font-weight:800;color:var(--dark);margin-bottom:1rem}
+.form-field{margin-bottom:.875rem}
+.form-field label{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:.35rem}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:9px 13px;border-radius:10px;border:1px solid #c5d9a8;background:#fff;font-family:'Nunito',sans-serif;font-size:16px;color:var(--dark);outline:none;transition:border .2s;-webkit-appearance:none;appearance:none}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--sage-mid)}
+.form-field textarea{resize:vertical;min-height:80px}
+.submit-btn{width:100%;background:var(--coral);color:#fff;padding:13px;border-radius:50px;font-weight:700;font-size:16px;border:none;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:.25rem;transition:background .2s;-webkit-appearance:none}
+.submit-btn:hover{background:#993C1D}
+
+/* FOOTER */
+footer{background:var(--dark);padding:2rem 1.25rem}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:15px;font-weight:800;color:#fff}
+.footer-logo em{color:#97C459;font-style:normal}
+.footer-links{display:flex;gap:1.25rem;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:#888780;text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-copy{font-size:11px;color:#5F5E5A}
+
+/* TABLET ≤ 900px */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-cta{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-cards{max-width:440px}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
+  .edu-grid{grid-template-columns:1fr}
+}
+
+/* MOBILE ≤ 600px */
+@media(max-width:600px){
+  section{padding:2.5rem 1rem}
+  .hero{padding:2rem 1rem 2rem}
+  .hero-inner{gap:2rem}
+  .hero-cards{max-width:100%}
+  .hcard.full{grid-column:span 2}
+  .badges-wrap{padding:1.25rem 1rem 0}
+  .spazi-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .footer-links{gap:1rem}
+  .hero-btns{flex-direction:column}
+  .hero-btns a{text-align:center}
+  .social-row{gap:.5rem}
+  .edu-grid{gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#home">
+      <div class="logo-mark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#639922"/><path d="M6 20c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#3B6D11" stroke-width="2" stroke-linecap="round"/><path d="M4 14c1-2 3-3 4-3" stroke="#97C459" stroke-width="1.5" stroke-linecap="round"/><path d="M20 14c-1-2-3-3-4-3" stroke="#97C459" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <span class="logo-text">Gioc<em>@</em>Impar<em>@</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#progetto">Progetto educativo</a></li>
+      <li><a href="#spazi">Gli spazi</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#team">Chi siamo</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+    <a class="nav-cta" href="#contatti">Contattaci</a>
+    <button class="hamburger" id="ham" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="#progetto">Progetto educativo</a>
+  <a href="#spazi">Gli spazi</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#team">Chi siamo</a>
+  <a href="#blog">Blog</a>
+  <a href="#contatti">Contattaci →</a>
+</div>
+
+<div id="home" class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Nido &amp; Scuola dell'Infanzia · Carimate (CO)</div>
+      <h1 class="hero-title">Un luogo dove <em>giocare</em> è già imparare</h1>
+      <blockquote class="hero-quote">
+        "Ciò che il bambino apprende deve essere interessante, deve affascinarlo, bisogna offrirgli cose grandiose."
+        <cite>— Maria Montessori</cite>
+      </blockquote>
+      <div class="hero-btns">
+        <a href="#contatti" class="btn-primary">Prenota una visita</a>
+        <a href="#progetto" class="btn-secondary">Il nostro metodo</a>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center">
+      <div class="hero-cards">
+        <div class="hcard"><div class="hcard-icon hc-s">🌿</div><p>Bilingue</p><span>Italiano &amp; Inglese</span></div>
+        <div class="hcard"><div class="hcard-icon hc-c">🎨</div><p>Creativo</p><span>Arte &amp; musica</span></div>
+        <div class="hcard"><div class="hcard-icon hc-s">🌳</div><p>All'aperto</p><span>Ampio spazio verde</span></div>
+        <div class="hcard"><div class="hcard-icon hc-c">🧩</div><p>Montessori</p><span>Metodo attivo</span></div>
+        <div class="hcard full"><div class="hcard-icon hc-s">👶</div><div><p>Nido da 3 mesi + Materna</p><span>Lunedì–Venerdì · 7:30–18:00</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="badges-wrap">
+  <div class="badge"><span class="bdot"></span>Bilingue certificato</div>
+  <div class="badge"><span class="bdot"></span>Personale qualificato</div>
+  <div class="badge"><span class="bdot"></span>Centro estivo</div>
+  <div class="badge"><span class="bdot"></span>Sportello d'ascolto</div>
+  <div class="badge"><span class="bdot"></span>GIOCODANZA®</div>
+</div>
+<div style="margin-top:1.75rem"><hr class="divider"></div>
+
+<section id="progetto" style="background:#fff">
+  <div class="section-inner">
+    <div class="section-tag">Progetto educativo</div>
+    <h2 class="section-title">Il bambino al centro dell'atto educativo</h2>
+    <p class="section-sub">Una programmazione che rispetta i tempi di ogni bambino, costruita intorno all'esperienza, all'autonomia e alla relazione.</p>
+    <div class="edu-grid">
+      <div>
+        <div class="edu-text">
+          <h3>Il pensiero pedagogico</h3>
+          <p>Nulla è lasciato al caso. Ogni spazio, arredi e programmazione è pensato per permettere al bambino di muoversi in totale autonomia e serenità, libero di costruirsi un personale bagaglio di apprendimento esperienziale.</p>
+          <p>Il personale qualificato risponde alle esigenze sia del bambino che del genitore, garantendo continuità educativa tra casa e scuola.</p>
+        </div>
+        <ul class="edu-list">
+          <li><span class="li-icon">🌱</span><span>Programmazione differenziata per fascia d'età</span></li>
+          <li><span class="li-icon">🤝</span><span>Inserimento graduale e personalizzato</span></li>
+          <li><span class="li-icon">🕐</span><span>Momenti di routine come occasioni educative</span></li>
+          <li><span class="li-icon">📋</span><span>Documenti e regolamenti condivisi con le famiglie</span></li>
+          <li><span class="li-icon">🌍</span><span>Approccio bilingue dall'ingresso fino ai 6 anni</span></li>
+        </ul>
+        <a href="#contatti" class="btn-sage">Richiedi il progetto educativo completo</a>
+      </div>
+      <div>
+        <div class="phase-card"><div class="phase-label">Fase 1</div><h4>L'inserimento</h4><p>Un percorso graduale che accompagna ogni bambino nell'ambientamento, rispettando i suoi tempi e rassicurando la famiglia.</p></div>
+        <div class="phase-card"><div class="phase-label">Fase 2</div><h4>I momenti di routine</h4><p>Pasto, riposo e igiene diventano occasioni educative in cui il bambino acquisisce autonomia e sicurezza.</p></div>
+        <div class="phase-card"><div class="phase-label">Fase 3</div><h4>La programmazione</h4><p>Attività ludiche, creative e cognitive calibrate sulla fascia d'età per stimolare curiosità e apprendimento attivo.</p></div>
+        <div class="phase-card coral"><div class="phase-label">Continuità</div><h4>Dialogo con le famiglie</h4><p>Colloqui periodici e lo sportello d'ascolto garantiscono una collaborazione costante tra scuola e genitori.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<section id="spazi">
+  <div class="section-inner">
+    <div class="section-tag">Gli spazi</div>
+    <h2 class="section-title">Ambienti pensati per esplorare</h2>
+    <p class="section-sub">Ogni angolo della struttura stimola il movimento, la creatività e la scoperta, dentro e fuori.</p>
+    <div class="spazi-grid">
+      <div class="spazio-card"><div class="spazio-img sp-v">🌳</div><div class="spazio-body"><h3>Il parco e lo spazio esterno</h3><p>Un ampio giardino dedicato ad attività ricreative e didattiche. I bambini crescono a contatto con la natura.</p></div></div>
+      <div class="spazio-card"><div class="spazio-img sp-b">🏫</div><div class="spazio-body"><h3>Le aule e gli spazi interni</h3><p>Ambienti luminosi con arredi a misura di bambino che favoriscono l'autonomia e la libera esplorazione.</p></div></div>
+      <div class="spazio-card"><div class="spazio-img sp-c">🎨</div><div class="spazio-body"><h3>Laboratorio creativo</h3><p>Spazio dedicato ad arte, musica, manualità e GIOCODANZA® per esprimere sé stessi attraverso linguaggi diversi.</p></div></div>
+      <div class="spazio-card"><div class="spazio-img sp-a">💻</div><div class="spazio-body"><h3>Aula tecnologica con LIM</h3><p>I bambini scoprono il coding e il pensiero computazionale in modo completamente ludico e coinvolgente.</p></div></div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<section id="servizi" style="background:#fff">
+  <div class="section-inner">
+    <div class="section-tag">Servizi</div>
+    <h2 class="section-title">Un'offerta completa per bambini e famiglie</h2>
+    <p class="section-sub">Oltre alla didattica quotidiana, proponiamo servizi pensati per arricchire l'esperienza educativa e supportare le famiglie.</p>
+    <div class="services-grid">
+      <div class="svc svc-g"><div class="svc-icon si-g">💃</div><div><h3>GIOCODANZA®</h3><p>Espressione corporea e musicale attraverso il gioco. Un percorso unico che unisce danza, ritmo e fantasia.</p></div></div>
+      <div class="svc svc-c"><div class="svc-icon si-c">🏖️</div><div><h3>Centro Estivo</h3><p>Attività, laboratori e avventure in un ambiente sicuro, aperto ai bambini del nido e della materna.</p></div></div>
+      <div class="svc svc-g"><div class="svc-icon si-g">🧠</div><div><h3>Sportello d'ascolto</h3><p>Colloqui individuali con la pedagogista Federica per supportare i genitori nelle sfide della crescita.</p></div></div>
+      <div class="svc svc-c"><div class="svc-icon si-c">🌍</div><div><h3>Inglese con Cristina</h3><p>Lezioni divertenti con una docente laureata in Scienze Linguistiche. L'inglese entra nel quotidiano in modo naturale.</p></div></div>
+      <div class="svc svc-g"><div class="svc-icon si-g">💻</div><div><h3>Coding &amp; LIM</h3><p>Patrizia introduce il pensiero computazionale in modo ludico: i bambini imparano a programmare senza saperlo.</p></div></div>
+      <div class="svc svc-c"><div class="svc-icon si-c">📅</div><div><h3>Orario esteso</h3><p>Attivo lunedì–venerdì 7:30–18:00, con orario flessibile pensato per le famiglie che lavorano.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-banner">
+  <blockquote>"Spazi, arredi e programmazione sono pensati per far muovere in totale autonomia e serenità il bambino, libero di costruirsi un personale bagaglio di apprendimento esperienziale."<cite>Federica Capuano · Pedagogista e titolare</cite></blockquote>
+</div>
+
+<section id="team">
+  <div class="section-inner">
+    <div class="section-tag">Chi siamo</div>
+    <h2 class="section-title">Le persone che si prendono cura dei tuoi figli</h2>
+    <p class="section-sub">Un team affiatato con anni di esperienza e una passione genuina per l'educazione dei più piccoli.</p>
+    <div class="team-grid">
+      <div class="team-card"><div class="avatar av-s">FC</div><h3>Federica Capuano</h3><div class="role">Titolare &amp; Pedagogista</div><p>Guida la scuola con attenzione al benessere di ogni bambino e disponibilità costante verso le famiglie.</p></div>
+      <div class="team-card"><div class="avatar av-c">A</div><h3>Ambra</h3><div class="role">Maestra Scuola Infanzia</div><p>Intraprendente e creativa, pianifica attività divertenti. Aiuta i bambini a crescere sereni e meravigliarsi ogni giorno.</p></div>
+      <div class="team-card"><div class="avatar av-c">L</div><h3>Laura</h3><div class="role">Maestra Scuola Infanzia</div><p>In coppia con Ambra porta entusiasmo e dedizione in ogni attività, rendendo la sezione ricca di energia.</p></div>
+      <div class="team-card"><div class="avatar av-b">CK</div><h3>Cristina</h3><div class="role">Insegnante di Inglese</div><p>Laureata in Scienze Linguistiche, porta l'inglese in classe con creatività e leggerezza fin dai primi mesi.</p></div>
+      <div class="team-card"><div class="avatar av-s">P</div><h3>Patrizia</h3><div class="role">Maestra LIM &amp; Coding</div><p>Coinvolge i bambini con la LIM in modo creativo: colorando, scoprendo e programmando in chiave ludica.</p></div>
+      <div class="team-card"><div class="avatar av-s">S&amp;D</div><h3>Sara e Denise</h3><div class="role">Educatrici del Nido</div><p>Con gesti affettivi e rassicuranti, fanno sentire i bimbi del nido esattamente come a casa propria.</p></div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<section id="blog" style="background:#fff">
+  <div class="section-inner">
+    <div class="section-tag">Blog</div>
+    <h2 class="section-title">Dalla nostra scuola</h2>
+    <p class="section-sub">Attività, progetti e momenti speciali vissuti insieme ai bambini e alle famiglie.</p>
+    <div class="blog-grid">
+      <div class="blog-card"><div class="blog-thumb bt-y">🤝</div><div class="blog-body"><div class="blog-date">Febbraio 2022</div><h3>Giornata della Gentilezza — quando lavoriamo tutti insieme siamo felici!</h3><p>Letture, disegni e attività per imparare che un piccolo gesto può cambiare la giornata di qualcuno.</p><a href="https://www.giocaimpara.it/blog/" target="_blank">Leggi sul sito →</a></div></div>
+      <div class="blog-card"><div class="blog-thumb bt-g">🌸</div><div class="blog-body"><div class="blog-date">Attività a distanza</div><h3>La scuola non si ferma: attività durante il lockdown da casa</h3><p>Anche a distanza i bambini hanno continuato a imparare e stare insieme grazie agli incontri via web con le maestre.</p><a href="https://www.giocaimpara.it/blog/" target="_blank">Leggi sul sito →</a></div></div>
+      <div class="blog-card"><div class="blog-thumb bt-b">🎬</div><div class="blog-body"><div class="blog-date">In evidenza</div><h3>Video di presentazione della Scuola dell'Infanzia Gioc@Impar@</h3><p>Un breve video per conoscere spazi, team e metodo educativo prima di venirci a trovare.</p><a href="https://www.youtube.com/watch?v=lmvcXoPjd9Y" target="_blank">Guarda il video →</a></div></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <a href="https://www.giocaimpara.it/blog/" target="_blank" class="btn-secondary">Tutti gli articoli del blog</a>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<section id="contatti">
+  <div class="section-inner">
+    <div class="section-tag">Contatti</div>
+    <h2 class="section-title">Vieni a trovarci</h2>
+    <p class="section-sub">Prenota una visita per scoprire gli spazi e conoscere il team. Siamo felici di rispondere a ogni domanda.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Dove siamo</h3>
+        <p>Siamo a Carimate (CO), raggiungibili da Como, Cantù e dalla Brianza. Ampio parcheggio nelle vicinanze.</p>
+        <div class="contact-detail"><div class="cdet-icon">📍</div><div><div class="cdet-label">Indirizzo</div><div class="cdet-val">Via della Pernice 1/A, 22060 Carimate (CO)</div></div></div>
+        <div class="contact-detail"><div class="cdet-icon">📞</div><div><div class="cdet-label">Telefono</div><div class="cdet-val">031 790349</div></div></div>
+        <div class="contact-detail"><div class="cdet-icon">✉️</div><div><div class="cdet-label">Email</div><div class="cdet-val">asilo@giocaimpara.it</div></div></div>
+        <div class="contact-detail"><div class="cdet-icon">🕐</div><div><div class="cdet-label">Orari</div><div class="cdet-val">Lunedì–Venerdì · 7:30–18:00</div></div></div>
+        <div class="social-row">
+          <a href="https://www.facebook.com/giocaimpara/" target="_blank" class="social-btn">📘 Facebook</a>
+          <a href="mailto:asilo@giocaimpara.it" class="social-btn">✉️ Email</a>
+          <a href="https://www.instagram.com/" target="_blank" class="social-btn">📸 Instagram</a>
+        </div>
+      </div>
+      <div class="contact-panel">
+        <h4>Scrivi un messaggio</h4>
+        <div class="form-field"><label>Nome e cognome</label><input type="text" placeholder="Mario Rossi" autocomplete="name"></div>
+        <div class="form-field"><label>Email</label><input type="email" placeholder="mario@esempio.it" autocomplete="email"></div>
+        <div class="form-field"><label>Oggetto</label><select><option>Informazioni iscrizione</option><option>Prenota una visita</option><option>Centro estivo</option><option>Sportello d'ascolto</option><option>Altro</option></select></div>
+        <div class="form-field"><label>Messaggio</label><textarea placeholder="Scrivi qui la tua richiesta..."></textarea></div>
+        <button class="submit-btn" id="submitBtn">Invia messaggio</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Gioc<em>@</em>Impar<em>@</em> · Carimate (CO)</div>
+    <div class="footer-links">
+      <a href="https://www.giocaimpara.it/privacy-policy/" target="_blank">Privacy Policy</a>
+      <a href="https://www.giocaimpara.it/wp-content/uploads/2018/10/Privacy-e-Cookies-Policy.pdf" target="_blank">Cookie Policy</a>
+      <a href="https://www.facebook.com/giocaimpara/" target="_blank">Facebook</a>
+    </div>
+    <div class="footer-copy">© 2025 Gioc@Impar@ di Federica Capuano</div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mob.classList.toggle('open');
+});
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  ham.classList.remove('open');
+  mob.classList.remove('open');
+}));
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+document.getElementById('submitBtn').addEventListener('click', function() {
+  this.textContent = 'Messaggio inviato ✓';
+  this.style.background = 'var(--sage)';
+  this.disabled = true;
+});
+</script>
+</body>
+</html>
